@@ -8,25 +8,25 @@
   <link href="http://example.com/" rel="alternate"/>
   <link href="http://example.com/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, THAC</rights>
-  <subtitle>——そんな夢、見られたら善いな。</subtitle>
+  <subtitle>闲来无事的博客网站</subtitle>
   <title>THAC的小站</title>
-  <updated>2026-03-10T11:25:34.647Z</updated>
+  <updated>2026-03-10T13:47:21.519Z</updated>
   <entry>
     <author>
       <name>THAC</name>
     </author>
     <category term="首页" scheme="http://example.com/categories/%E9%A6%96%E9%A1%B5/"/>
     <content>
-      <![CDATA[<p>欢迎来到THAC vs HandDoodle的个人博客小网站！本网站基于<a href="https://github.com/">github</a>和<a href="https://hexo.io/">hexo</a>实现服务器和模版的搭建。</p><h2 id="这里（可能）会有什么？"><a href="#这里（可能）会有什么？" class="headerlink" title="这里（可能）会有什么？"></a>这里（可能）会有什么？</h2><h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p>也许是一些个人碎碎念的生产处。</p><h3 id="音游相关"><a href="#音游相关" class="headerlink" title="音游相关"></a>音游相关</h3><p>可能会论述一些音游有关内容，但我还没想好。</p><h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><p>本人正在南京大学就读技术科学试验班（预分流智能科学与技术专业），可能会放一些专业学习内容。</p><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>我也不知道。<br>等我写出来就知道了。</p><p><em>自我介绍在“关于”那一页哦。</em></p>]]>
+      <![CDATA[<p>欢迎来到THAC vs HandDoodle的个人博客小网站！本网站基于<a href="https://github.com/">Github</a>和<a href="https://hexo.io/">Hexo</a>实现服务器和模版的搭建。</p><h2 id="这里（可能）会有什么？"><a href="#这里（可能）会有什么？" class="headerlink" title="这里（可能）会有什么？"></a>这里（可能）会有什么？</h2><h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p>也许是一些个人碎碎念的生产处。家长里短都有可能。</p><h3 id="音游相关"><a href="#音游相关" class="headerlink" title="音游相关"></a>音游相关</h3><p>可能会论述一些音游有关内容，但我还没想好。也许是就着某款音游的更新进行议论，也许是分享某个谱面的攻略，再也许是写谱心得，等等。</p><h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><p>本人正在南京大学就读技术科学试验班（预分流智能科学与技术专业），可能会放一些专业学习内容。比如，此时本人正在大一下，被高级程序设计、人工智能导论、数字系统设计基础、矩阵计算与优化所困扰中，可能会分享相关内容。</p><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>我也不知道。<br>等我写出来应该就知道了。本质想到什么写什么啦。</p><p><em>自我介绍在“关于”那一页哦。</em></p>]]>
     </content>
     <id>http://example.com/2026/03/10/hello-world/</id>
     <link href="http://example.com/2026/03/10/hello-world/"/>
     <published>2026-03-10T05:31:08.317Z</published>
     <summary>
-      <![CDATA[<p>欢迎来到THAC vs HandDoodle的个人博客小网站！本网站基于<a href="https://github.com/">github</a>和<a href="https://hexo.io/">hexo</a>实现服务器和模版的搭建。</p>
+      <![CDATA[<p>欢迎来到THAC vs HandDoodle的个人博客小网站！本网站基于<a href="https://github.com/">Github</a>和<a href="https://hexo.io/">Hexo</a>实现服务器和模版的搭建。</p>
 <h2 id="]]>
     </summary>
     <title>首页</title>
-    <updated>2026-03-10T11:25:34.647Z</updated>
+    <updated>2026-03-10T13:47:21.519Z</updated>
   </entry>
 </feed>
