@@ -40,4 +40,6 @@ code {
   text-align: left;
   text-justify: auto;
   hyphens: none;
+  word-break: normal;
+  line-break: anywhere;
 }

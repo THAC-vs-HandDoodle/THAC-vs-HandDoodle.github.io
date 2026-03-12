@@ -2,6 +2,8 @@
   text-align: left;
   text-justify: auto;
   hyphens: none;
+  word-break: normal;
+  line-break: anywhere;
 }
 body {
   background: url("/uploads/background.jpg");
@@ -1243,7 +1245,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b8af7a;
+  background: #2a9612;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2600,4 +2602,6 @@ code {
   text-align: left;
   text-justify: auto;
   hyphens: none;
+  word-break: normal;
+  line-break: anywhere;
 }

@@ -204,14 +204,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>14 分钟</span>
             </span>
 
         </div>
@@ -224,9 +224,9 @@
 
       
         <h1 id="前言">前言</h1>
-<p>因为第一节矩阵计算与优化课就暴毙要听不懂了，所以不得不着手准备写点自己的笔记来进行一个梳理。
-在我写了一点以后，发现使我搞懂的不是我把这份文章编得多好，而是我编辑这份文章的过程给了我一个静下心慢慢去一页一页看ppt加上ai辅助我理解的机会。
-这里暂时挖个坑，因为课太多了，等有点时间就写一点，所以没写完很正常。</p>
+<p>因为第一节矩阵计算与优化课就暴毙要听不懂了，所以不得不着手准备写点自己的笔记来进行一个梳理。</p>
+<p>在我写了一点以后，发现使我搞懂的不是我把这份文章编得多好，而是我编辑这份文章的过程给了我一个静下心慢慢去一页一页看ppt加上ai辅助我理解的机会。</p>
+<p>这里暂时挖个坑，因为课太多了，等有点时间就写一点，所以没写完很正常。</p>
 <hr />
 <h1 id="lesson-01-距离与范数">Lesson 01 距离与范数</h1>
 <h2 id="距离和距离空间">距离和距离空间</h2>
@@ -234,13 +234,13 @@
 <p>非空集合<span class="math inline">\(X\)</span>，对<span
 class="math inline">\(X\)</span>中任意两元素<span
 class="math inline">\(x,y\)</span>，按某一法则对应唯一的<strong>实数</strong><span
-class="math inline">\(d(x,y)\)</span>，满足:<br />
-1.<span class="math inline">\(d(x,y)\geq0\)</span>（当仅<span
+class="math inline">\(d(x,y)\)</span>，满足:</p>
+<p>1.<span class="math inline">\(d(x,y)\geq0\)</span>（当仅<span
 class="math inline">\(x=y\)</span>时取”<span
-class="math inline">\(=\)</span>“）<br />
-2.<span class="math inline">\(d(x,y)=d(y,x)\)</span><br />
-3.<span class="math inline">\(d(x,y)\leq d(x,z)+d(y,z)\)</span><br />
-则称<span class="math inline">\(d(x,y)\)</span>为<span
+class="math inline">\(=\)</span>“）</p>
+<p>2.<span class="math inline">\(d(x,y)=d(y,x)\)</span></p>
+<p>3.<span class="math inline">\(d(x,y)\leq d(x,z)+d(y,z)\)</span></p>
+<p>则称<span class="math inline">\(d(x,y)\)</span>为<span
 class="math inline">\(x\)</span>与<span
 class="math inline">\(y\)</span>之间的<strong>距离</strong>，并称<span
 class="math inline">\(X\)</span>是以<span
@@ -253,8 +253,8 @@ class="math inline">\((X,d)\)</span>。</p>
 <h4 id="l1距离"><span class="math inline">\(L1\)</span>距离</h4>
 <p>对<span
 class="math inline">\(X=\mathbb{R}^{n},x=(x_i),y=(y_i)\)</span>，<em>（也就是<span
-class="math inline">\(n\)</span>维向量）</em>，有:(下两个同理) <span
-class="math inline">\(d_1(x,y)=\sum_{i=1}^{n}
+class="math inline">\(n\)</span>维向量）</em>，有:（下两个同理）</p>
+<p><span class="math inline">\(d_1(x,y)=\sum_{i=1}^{n}
 |x_i-y_i|\)</span><em>（沿<span
 class="math inline">\(x,y\)</span>等坐标轴走的那种直角折线）</em></p>
 <h4 id="l2距离"><span class="math inline">\(L2\)</span>距离</h4>
@@ -270,22 +270,21 @@ class="math inline">\(x,y\)</span>等坐标轴走的最长单条折线）</em></
 <p>对 <span class="math inline">\(1 \le p &lt; \infty\)</span>，记<span
 class="math inline">\(l^p = \left\{ x : x = (x_1, x_2, \dots, x_i,
 \dots)^T,\ \sum_{i=1}^\infty |x_i|^p &lt; \infty
-\right\}\)</span><em>（无穷数列，每项p次方和为有限数）</em> 对<span
-class="math inline">\(x = (x_1, x_2, \dots, x_i, \dots)^T,\quad y =
-(y_1, y_2, \dots, y_i, \dots)^T \in l^p,\)</span><br />
-<span class="math inline">\(d_p(x, y) = \left\{ \sum_{i=1}^\infty |x_i -
-y_i|^p \right\}^{1/p}.\)</span> 则 <span class="math inline">\((l^p,
-d_p)\)</span> 是距离空间。</p>
+\right\}\)</span><em>（无穷数列，每项p次方和为有限数）</em></p>
+<p>对<span class="math inline">\(x = (x_1, x_2, \dots, x_i,
+\dots)^T,\quad y = (y_1, y_2, \dots, y_i, \dots)^T \in l^p,d_p(x, y) =
+\left\{ \sum_{i=1}^\infty |x_i - y_i|^p \right\}^{1/p}.\)</span></p>
+<p>则 <span class="math inline">\((l^p, d_p)\)</span> 是距离空间。</p>
 <h4 id="linfty-空间"><span class="math inline">\(l^\infty\)</span>
 空间</h4>
 <p>记<span class="math inline">\(l^\infty = \{x : x = (x_1, x_2,
 \dots)^T, \sup_i |x_i| &lt;
-\infty\},\)</span><em>（sup：上确界）（每一项都是有限数，不会随数列无限而无上界）</em>
-对 <span class="math inline">\(x = (x_1, x_2, \dots, x_i,
+\infty\},\)</span><em>（sup：上确界）（每一项都是有限数，不会随数列无限而无上界）</em></p>
+<p>对 <span class="math inline">\(x = (x_1, x_2, \dots, x_i,
 \dots)^T\)</span>，<span class="math inline">\(y = (y_1, y_2, \dots,
 y_i, \dots)^T \in l^\infty\)</span>，定义<span
-class="math inline">\(d_\infty(x, y) := \sup_i |x_i - y_i|,\)</span> 则
-<span class="math inline">\((l^\infty, d_\infty)\)</span>
+class="math inline">\(d_\infty(x, y) := \sup_i |x_i - y_i|,\)</span></p>
+<p>则 <span class="math inline">\((l^\infty, d_\infty)\)</span>
 是距离空间.</p>
 <h2 id="极限与收敛">极限与收敛</h2>
 <p>设 <span class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>
@@ -300,9 +299,10 @@ class="math inline">\(d(x_n, x_0) &lt; \varepsilon,\)</span>则称点列
 <strong>收敛于</strong> <span class="math inline">\(x_0\)</span>，或者说
 <span class="math inline">\(x_0\)</span> 是 <span
 class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>
-的<strong>极限</strong>，记作 <span class="math display">\[\lim_{n \to
-\infty} x_n = x_0 或者 x_n \to x_0\ (n \to \infty)\]</span>
-<em>（简单可过）</em></p>
+的<strong>极限</strong>，记作</p>
+<p><span class="math display">\[\lim_{n \to \infty} x_n = x_0 或者 x_n
+\to x_0\ (n \to \infty)\]</span></p>
+<p><em>（简单可过）</em></p>
 <h2 id="cauchy列与完备">Cauchy列与完备</h2>
 <h3 id="定义-1">定义</h3>
 <p>设 <span class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>
@@ -313,16 +313,17 @@ class="math inline">\(N \in \mathbb{N}\)</span>，使得当 <span
 class="math inline">\(n,m &gt; N\)</span> 时有 <span
 class="math inline">\(d(x_m, x_n) &lt; \varepsilon,\)</span>则称 <span
 class="math inline">\(\{x_n\}_{n=1}^\infty\)</span> 为 <strong>Cauchy
-列</strong>。<em>(两个点之间在很后面的时候逐渐挤到一起，但是不需要知道收敛于的特定值)</em>
-如果 <span class="math inline">\(X\)</span> 中任何 Cauchy 列都在 <span
-class="math inline">\(X\)</span> 中收敛，则称 <span
+列</strong>。<em>(两个点之间在很后面的时候逐渐挤到一起，但是不需要知道收敛于的特定值)</em></p>
+<p>如果 <span class="math inline">\(X\)</span> 中任何 Cauchy 列都在
+<span class="math inline">\(X\)</span> 中收敛，则称 <span
 class="math inline">\(X\)</span> 是<strong>完备的</strong>。</p>
 <h3 id="例-1">例</h3>
 <p>在有理数空间<span class="math inline">\(\mathbb{Q}\)</span>里，数列
 <span class="math inline">\(x_n=(1+\frac{1}{n})^n\)</span>是 Cauchy
 列，但它的极限<span class="math inline">\(e\)</span>不在<span
 class="math inline">\(\mathbb{Q}\)</span>里，所以在<span
-class="math inline">\(\mathbb{Q}\)</span>中这个 Cauchy 列不收敛。 <span
+class="math inline">\(\mathbb{Q}\)</span>中这个 Cauchy 列不收敛。</p>
+<p><span
 class="math inline">\(\mathbb{Q}\)</span>是不完备的（上面那个就是一个不收敛的Cauchy列例子），<span
 class="math inline">\(\mathbb{R}\)</span>是完备的。</p>
 <h2 id="范数和赋范线性空间">范数和赋范线性空间</h2>
@@ -335,78 +336,82 @@ class="math inline">\(X\)</span> 中每一个元素 <span
 class="math inline">\(x\)</span>，按照一个<strong>法则</strong>
 <em>（输入元素输出实数）</em>对应一个<strong>实数</strong> <span
 class="math inline">\(\|x\|\)</span> 满足：<em>（注意是实数！）</em></p>
-<ol type="i">
-<li><span class="math inline">\(\|x\| \ge 0\)</span> 且 <span
+<ul>
+<li><p><span class="math inline">\(\|x\| \ge 0\)</span> 且 <span
 class="math inline">\(\|x\| = 0\)</span> 当且仅当 <span
-class="math inline">\(x = 0\)</span>；</li>
-<li><span class="math inline">\(\|x + y\| \le \|x\| +
+class="math inline">\(x = 0\)</span>；</p></li>
+<li><p><span class="math inline">\(\|x + y\| \le \|x\| +
 \|y\|\)</span>（<span class="math inline">\(x,y \in
-X\)</span>）；<em>（三角不等式，毕竟x+y类似矢量加）</em></li>
-<li><span class="math inline">\(\|\alpha x\| =
+X\)</span>）；<em>（三角不等式，毕竟x+y类似矢量加）</em></p></li>
+<li><p><span class="math inline">\(\|\alpha x\| =
 |\alpha|\|x\|\)</span>（<span class="math inline">\(\alpha \in
-\mathbb{C}, x \in X\)</span>），</li>
-</ol>
+\mathbb{C}, x \in X\)</span>），</p></li>
+</ul>
 <p>则称 <span class="math inline">\(\|x\|\)</span> 为 <span
 class="math inline">\(x\)</span> 的<strong>范数</strong>，<span
 class="math inline">\(X\)</span> 称为以 <span
 class="math inline">\(\|\cdot\|\)</span>
 为范数的<strong>赋范线性空间</strong>。</p>
 <h4 id="碎碎念">碎碎念</h4>
-<p><strong>范数</strong>相当于给<strong>线性空间</strong>定义了<strong>长度/大小</strong>这个概念。
-你最好还记得线性空间<strong>不是专指矩阵空间、向量空间之类</strong>的概念。它是一个极为抽象的概念，满足一定条件
-<del>（希望你没忘记你的线性代数）</del> 就可以被叫做线性空间。
-范数的值是<strong>实数</strong>。一个线性空间有了范数，就可以试着类比着被当做经典三维空间来看了。</p>
+<p><strong>范数</strong>相当于给<strong>线性空间</strong>定义了<strong>长度/大小</strong>这个概念。</p>
+<p>你最好还记得线性空间<strong>不是专指矩阵空间、向量空间之类</strong>的概念。它是一个极为抽象的概念，满足一定条件
+<del>（希望你没忘记你的线性代数）</del> 就可以被叫做线性空间。</p>
+<p>范数的值是<strong>实数</strong>。一个线性空间有了范数，就可以试着类比着被当做经典三维空间来看了。</p>
 <h3 id="banach空间">Banach空间</h3>
 <p>对于赋范线性空间，通过公式 <span class="math inline">\(d(x, y) = \|x
 - y\|\)</span> 可以定义元素之间的<strong>距离</strong>，容易验证 <span
 class="math inline">\(d(x,y)\)</span> 满足距离的三个条件，因而 <span
 class="math inline">\(X\)</span>
-是一个距离空间。<em>（将范数视为距离空间的距离的距离空间）</em>
-完备的赋范线性空间称为 <strong>Banach
+是一个距离空间。<em>（将范数视为距离空间的距离的距离空间）</em></p>
+<p>完备的赋范线性空间称为 <strong>Banach
 空间</strong>。<em>（它是泛函分析的核心研究对象）</em></p>
 <h3 id="例-2">例</h3>
 <p><span class="math inline">\(\mathbb{C}^n\)</span> 与 <span
 class="math inline">\(l^p\)</span>（<span
 class="math inline">\(p&gt;1\)</span>）分别在以下范数下是赋范线性空间，而且是
-Banach 空间： <span class="math display">\[
+Banach 空间：</p>
+<p><span class="math display">\[
 \|x\| = \left( \sum_{i=1}^n |x_i|^2 \right)^{\frac{1}{2}},\quad x =
 (x_1, x_2, \dots, x_n) \in \mathbb{C}^n,
-\]</span> <em>（含义其实就是直线距离的求法，每项平方加起来开根）</em>
-<span class="math display">\[
+\]</span></p>
+<p><em>（含义其实就是直线距离的求法，每项平方加起来开根）</em></p>
+<p><span class="math display">\[
 \|x\| = \left( \sum_{i=1}^\infty |x_i|^p \right)^{\frac{1}{p}},\quad x =
 (x_1, x_2, \dots, x_n, \dots) \in l^p.
-\]</span> <em><span
+\]</span></p>
+<p><em>（<span
 class="math inline">\(\mathbb{C}^n\)</span>其实就是复数域的n维线性空间。<span
-class="math inline">\(l^p\)</span>在上面已经提到过，范数也是上面的距离。</em></p>
+class="math inline">\(l^p\)</span>在上面已经提到过，范数也是上面的距离。）</em></p>
 <h3 id="范数的强于和等价">范数的强于和等价</h3>
 <h4 id="定义-2">定义</h4>
 <p>设 <span class="math inline">\(X\)</span> 是一线性空间，<span
 class="math inline">\(\|\cdot\|_1\)</span> 和 <span
 class="math inline">\(\|\cdot\|_2\)</span> 是 <span
-class="math inline">\(X\)</span> 上两个范数， 如果<span
-class="math inline">\(\lim_{n \to \infty} \|x_n\|_1 = 0 \implies \lim_{n
-\to \infty} \|x_n\|_2 = 0,\)</span>则称 <span
+class="math inline">\(X\)</span> 上两个范数，</p>
+<p>如果<span class="math inline">\(\lim_{n \to \infty} \|x_n\|_1 = 0
+\implies \lim_{n \to \infty} \|x_n\|_2 = 0,\)</span>则称 <span
 class="math inline">\(\|\cdot\|_1\)</span> <strong>强于</strong> <span
-class="math inline">\(\|\cdot\|_2\)</span>； 如果<span
-class="math inline">\(\lim_{n \to \infty} \|x_n\|_1 = 0 \iff \lim_{n \to
-\infty} \|x_n\|_2 = 0,\)</span>则称 <span
+class="math inline">\(\|\cdot\|_2\)</span>；</p>
+<p>如果<span class="math inline">\(\lim_{n \to \infty} \|x_n\|_1 = 0
+\iff \lim_{n \to \infty} \|x_n\|_2 = 0,\)</span>则称 <span
 class="math inline">\(\|\cdot\|_1\)</span> <strong>等价于</strong> <span
 class="math inline">\(\|\cdot\|_2\)</span>。</p>
 <h4 id="其他判定">其他判定</h4>
 <ul>
-<li>若存在常数 $ 0 &lt; m M &lt; $，使得对所有 $ x X <span
+<li><p>若存在常数 $ 0 &lt; m M &lt; $，使得对所有 $ x X <span
 class="math inline">\(，有\)</span>m|x|_2≤|x|_1≤M|x|_2$，<em>（不等式判别）</em>
-则两个范数等价。</li>
-<li>对于 <strong>一般的有限维线性空间 <span
+则两个范数等价。</p></li>
+<li><p>对于 <strong>一般的有限维线性空间 <span
 class="math inline">\(X\)</span></strong> ，<span
 class="math inline">\(\|\cdot\|_1\)</span> 与 <span
 class="math inline">\(\|\cdot\|_2\)</span> 是 <span
 class="math inline">\(X\)</span> 上定义的两个范数，则 <span
 class="math inline">\(\|\cdot\|_1\)</span> 与 <span
-class="math inline">\(\|\cdot\|_2\)</span> <strong>等价</strong>。
-<em>（相应地，<span
-class="math inline">\(l^p\)</span>空间就不符合这一条。）</em></li>
+class="math inline">\(\|\cdot\|_2\)</span>
+<strong>等价</strong>。</p></li>
 </ul>
+<p><em>（相应地，<span
+class="math inline">\(l^p\)</span>空间就不符合这一条。）</em></p>
 <h3 id="赋范线性空间的性质">赋范线性空间的性质</h3>
 <ul>
 <li><p>设 <span class="math inline">\(X\)</span> 是赋范线性空间，<span
@@ -421,30 +426,31 @@ class="math inline">\(X\)</span> 中点列，<span
 class="math inline">\(\{\alpha_n\} \subset \mathbb{C},\ x,y \in X,\
 \alpha \in \mathbb{C}\)</span> 满足<span class="math inline">\(\lim_{n
 \to \infty} x_n = x,\quad \lim_{n \to \infty} y_n = y,\quad \lim_{n \to
-\infty} \alpha_n = \alpha,\)</span>则</p></li>
+\infty} \alpha_n = \alpha,\)</span>则</p>
+<ul>
+<li><p><span class="math inline">\(\lim_{n \to \infty} (x_n + y_n) = x +
+y\)</span>，</p></li>
+<li><p><span class="math inline">\(\lim_{n \to \infty} \alpha_n x_n =
+\alpha x\)</span>。
+<em>（人话就是加法、数乘对极限是连续的。）</em></p></li>
+</ul></li>
 </ul>
-<ol type="i">
-<li><span class="math inline">\(\lim_{n \to \infty} (x_n + y_n) = x +
-y\)</span>，</li>
-<li><span class="math inline">\(\lim_{n \to \infty} \alpha_n x_n =
-\alpha x\)</span>。 <em>（人话就是加法、数乘对极限是连续的。）</em></li>
-</ol>
 <h2 id="向量范数">向量范数</h2>
 <h3 id="定义-3">定义</h3>
 <p>对于 <span class="math inline">\(F^n\)</span>（实或复欧几里得空间
 <em>（就是一般几何上的那种）</em> ）中的向量 <span
 class="math inline">\(x\)</span> 与 <span
-class="math inline">\(y\)</span>， 既可以用 <span
-class="math inline">\(x-y\)</span> 的 欧几里得(Euclid) 长度
-<em>（就是一般的直线长度）</em> 来描述 <span
+class="math inline">\(y\)</span>，</p>
+<p>既可以用 <span class="math inline">\(x-y\)</span> 的 欧几里得(Euclid)
+长度 <em>（就是一般的直线长度）</em> 来描述 <span
 class="math inline">\(x\)</span> 与 <span
-class="math inline">\(y\)</span> 之间的距离，<br />
-也可以用 <span class="math inline">\(x-y\)</span> 的
+class="math inline">\(y\)</span> 之间的距离，</p>
+<p>也可以用 <span class="math inline">\(x-y\)</span> 的
 <strong>范数</strong> 来描述它们之间的距离。</p>
 <h3 id="例-3">例</h3>
 <p>设 <span class="math inline">\(x = (\xi_1, \xi_2, \dots, \xi_n)^T \in
-\mathbb{C}^n\)</span>，规定如下：
-<em>（其实有证明，但是实在不想看了。真想看的话写在这里也不如自己去找ppt看）</em></p>
+\mathbb{C}^n\)</span>，规定如下：</p>
+<p><em>（其实有证明，但是实在不想看了。真想看的话写在这里也不如自己去找ppt看）</em></p>
 <h4 id="范数">1-范数</h4>
 <p><span class="math inline">\(\|x\|_1 = \sum_{k=1}^n |\xi_k|\)</span>
 <em>(每个分量绝对值之和，折线样子的那个曼哈顿距离)</em></p>
@@ -460,27 +466,28 @@ class="math inline">\(\infty\)</span>-范数</h4>
 <h4 id="p-范数">p-范数</h4>
 <p><span class="math inline">\(\|x\|_p = \left(\sum_{k=1}^n
 |\xi_k|^p\right)^{1/p}\)</span> (<span class="math inline">\(1 \le p
-&lt; \infty\)</span>) 注：<span class="math inline">\(\lim_{p \to
-\infty} \|x\|_p = \|x\|_\infty\)</span>
-<em>（可以认为是广义上的平均长度，但我还没想通。）</em></p>
+&lt; \infty\)</span>)</p>
+<p>注：<span class="math inline">\(\lim_{p \to \infty} \|x\|_p =
+\|x\|_\infty\)</span></p>
+<p><em>（可以认为是广义上的平均长度，但我还没想通。）</em></p>
 <h2 id="矩阵范数与酉矩阵">矩阵范数与酉矩阵</h2>
 <h3 id="矩阵范数定义">矩阵范数定义</h3>
 <p>如果 <span class="math inline">\(\mathbb{C}^{n \times n}\)</span>
 上的一个实函数<span class="math inline">\(\|\cdot\|: \mathbb{C}^{n
 \times n} \to \mathbb{R}\)</span>满足以下条件：</p>
-<ol type="i">
-<li><span class="math inline">\(\|A\| \ge 0\)</span>，且 <span
+<ul>
+<li><p><span class="math inline">\(\|A\| \ge 0\)</span>，且 <span
 class="math inline">\(\|A\| = 0\)</span> 当且仅当 <span
-class="math inline">\(A = 0\)</span>（非负性）；</li>
-<li>对 <span class="math inline">\(\lambda \in
+class="math inline">\(A = 0\)</span>（非负性）；</p></li>
+<li><p>对 <span class="math inline">\(\lambda \in
 \mathbb{C}\)</span>，<span class="math inline">\(\|\lambda A\| =
-|\lambda| \|A\|\)</span>（齐次性）；</li>
-<li><span class="math inline">\(\|A + B\| \le \|A\| +
-\|B\|\)</span>（三角不等式）；</li>
-<li><span class="math inline">\(\|AB\| \le \|A\|
+|\lambda| \|A\|\)</span>（齐次性）；</p></li>
+<li><p><span class="math inline">\(\|A + B\| \le \|A\| +
+\|B\|\)</span>（三角不等式）；</p></li>
+<li><p><span class="math inline">\(\|AB\| \le \|A\|
 \|B\|\)</span>（<strong>相容性</strong>
-<em>(矩阵范数相对于向量范数独占)</em>），</li>
-</ol>
+<em>(矩阵范数相对于向量范数独占)</em>），</p></li>
+</ul>
 <p><em>（矩阵相乘本来就可以理解为加以变换，相容性可以理解为复合变换的
 “放大倍数” 不超过两个变换各自 “放大倍数”
 的乘积，本质我认为还是类三角不等式的思想，复合不如分别简单的和/积）</em></p>
@@ -494,26 +501,219 @@ class="math inline">\(A\)</span> 的范数。</p>
 \mathbb{C}^{n \times n}\)</span>，规定:<em>(n*n的复矩阵)</em></p>
 <h4 id="m_1范数"><span class="math inline">\(m_1\)</span>范数</h4>
 <p><span class="math inline">\(\|A\|_{m_1} = \sum_{i=1}^n \sum_{j=1}^n
-|a_{ij}|\)</span>
-<em>（拉平后取向量1-范数，也就是矩阵里所有元素的绝对值和）</em></p>
+|a_{ij}|\)</span></p>
+<p><em>（拉平后取向量1-范数，也就是矩阵里所有元素的绝对值和）</em></p>
 <h4 id="m_infty范数"><span
 class="math inline">\(m_\infty\)</span>范数</h4>
 <p><span class="math inline">\(\|A\|_{m_\infty} = n \max_{i,j}
-|a_{ij}|\)</span> <em>（拉平后取向量<span
+|a_{ij}|\)</span></p>
+<p><em>（拉平后取向量<span
 class="math inline">\(\infty\)</span>-范数，也就是矩阵里绝对值最大的元素后，乘n来满足相容性）</em></p>
 <h4 id="f范数frobenius-范数"><span
 class="math inline">\(F\)</span>范数（Frobenius 范数）</h4>
 <p><span class="math inline">\(\|A\|_F = \sqrt{\sum_{i=1}^n \sum_{j=1}^n
-|a_{ij}|^2} = \sqrt{\mathrm{tr}(A^H A)}\)</span>
-<em>（拉平后取向量2-范数，也就是对矩阵每个元素的平方求和再开根，tr表示迹，也就是对角线元素和，此处每个对角线上的元素都是该元素所在列的所有元素的平方的和）</em></p>
+|a_{ij}|^2} = \sqrt{\mathrm{tr}(A^H A)}\)</span></p>
+<p><em>（拉平后取向量2-范数，也就是对矩阵每个元素的平方求和再开根，tr表示迹，也就是对角线元素和，此处每个对角线上的元素都是该元素所在列的所有元素的平方的和）</em></p>
 <h3 id="酉矩阵定义">酉矩阵定义</h3>
 <p>设 <span class="math inline">\(A \in \mathbb{C}^{n \times
 n}\)</span>，若 <span class="math inline">\(A\)</span> 满足<span
 class="math inline">\(A^H A = I\)</span>，则称 <span
-class="math inline">\(A\)</span> 为<strong>酉矩阵</strong>。 <em>(<span
+class="math inline">\(A\)</span> 为<strong>酉矩阵</strong>。</p>
+<p><em>(<span
 class="math inline">\(A^H\)</span>介绍过是共轭转置（Hermitian
 转置），而在实矩阵时与一般转置<span
 class="math inline">\(A^T\)</span>相同，故实空间的酉矩阵就是正交矩阵的概念)</em></p>
+<h3 id="酉矩阵性质">酉矩阵性质</h3>
+<p>设 <span class="math inline">\(A,B \in \mathbb{C}^{n \times
+n}\)</span>。</p>
+<ol type="1">
+<li><p>若 <span class="math inline">\(A\)</span> 是酉矩阵，则 <span
+class="math inline">\(A^{-1}, A^H, A^T, \overline{A}, A^k\
+(k=1,2,\dots)\)</span>
+均为酉矩阵；<em>（逆、共轭转置、转置、共轭、幂次，仍然是酉矩阵）</em></p></li>
+<li><p>若 <span class="math inline">\(A,B\)</span> 是酉矩阵，则 <span
+class="math inline">\(AB\)</span>
+也是酉矩阵；<em>（乘法封闭）</em></p></li>
+<li><p>若 <span class="math inline">\(A\)</span> 是酉矩阵，则 <span
+class="math inline">\(|\det A| =
+1\)</span>；<em>（由定义取模可得）</em></p></li>
+<li><p><span class="math inline">\(A\)</span> 是酉矩阵的充要条件是 <span
+class="math inline">\(A\)</span> 的 <span
+class="math inline">\(n\)</span> 个列向量是标准正交向量组；</p></li>
+<li><p><span class="math inline">\(A\)</span> 是酉矩阵的充要条件是 <span
+class="math inline">\(A\)</span> 的 <span
+class="math inline">\(n\)</span> 个行向量是标准正交向量组；</p></li>
+<li><p><span class="math inline">\(A\)</span> 是酉矩阵的充要条件是对任意
+<span class="math inline">\(\alpha,\beta \in
+\mathbb{C}^n\)</span>，有<span class="math inline">\((A\alpha, A\beta) =
+(\alpha, \beta);\)</span></p></li>
+</ol>
+<p><em>（酉变换是等距变换： <span
+class="math inline">\((A\alpha,A\beta)=(A\alpha)^{H}(A\beta)=\alpha^{H}A^{H}A\beta=\alpha^{H}\beta=(\alpha,\beta)\)</span>
+。）</em></p>
+<p><em>（特别地，令 <span class="math inline">\(\alpha=\beta\)</span> 得
+<span class="math inline">\(\|A\alpha\|_2=\|\alpha\|_2\)</span>
+，即酉变换保持向量的 2 - 范数不变。）</em></p>
+<ol start="7" type="1">
+<li>若 <span class="math inline">\(A\)</span> 是酉矩阵，<span
+class="math inline">\(\lambda\)</span> 为 <span
+class="math inline">\(A\)</span> 的特征值，则 <span
+class="math inline">\(|\lambda| = 1\)</span>。（令 <span
+class="math inline">\(\alpha = \beta\)</span> 可得）</li>
+</ol>
+<h3 id="酉不变性">酉不变性</h3>
+<p>对酉矩阵 <span class="math inline">\(U, V\)</span>，有<span
+class="math inline">\(\|UA\|_F = \|AV\|_F = \|UAV\|_F =
+\|A\|_F\)</span></p>
+<p><em>（对这条，理解成类比可逆矩阵那样左乘右乘都不改变矩阵的秩的那种形状就可以了，这里是左乘或右乘酉矩阵都不改变矩阵的F范数）</em></p>
+<h3 id="矩阵范数的相似不变性定理">矩阵范数的相似不变性定理</h3>
+<p>设 <span class="math inline">\(\|\cdot\|\)</span> 是 <span
+class="math inline">\(\mathbb{C}^{n \times n}\)</span>
+上一个矩阵范数，<span class="math inline">\(G \in \mathbb{C}^{n \times
+n}\)</span> 是一个可逆矩阵，则<span class="math inline">\(\|A\|_G =
+\|G^{-1} A G\|, A \in \mathbb{C}^{n \times n}\)</span>是矩阵范数。</p>
+<p><em>（可以理解成相似变换不会破坏范数的公理结构，只是对原范数做了一个
+“坐标变换” 后的版本。）</em></p>
+<h3 id="算子范数">算子范数</h3>
+<h4 id="定义-4">定义</h4>
+<p>设 <span class="math inline">\(\|\cdot\|\)</span> 是 <span
+class="math inline">\(\mathbb{C}^n\)</span> 上的向量范数，定义 <span
+class="math inline">\(\mathbb{C}^{n \times n}\)</span> 上的函数 <span
+class="math inline">\(\|\cdot\|_m\)</span> 是 <span
+class="math inline">\(\mathbb{C}^{n \times n}\)</span> 上的矩阵范数：
+<span class="math display">\[
+\|A\|_m = \max_{\|x\|=1} \|Ax\|,\quad A \in \mathbb{C}^{n \times n}
+\]</span></p>
+<p><em>（||x||是某个向量范数，根据情况看。max||Ax||可以理解为被A作用后拉伸得最<strong>长</strong>的单位向量的范数。）</em></p>
+<p>称该矩阵范数为 <strong>算子范数</strong>（或<strong>由向量范数 <span
+class="math inline">\(\|\cdot\|\)</span> 诱导的矩阵范数</strong>）。</p>
+<p><strong>定理</strong>：</p>
+<ol type="1">
+<li><p><strong>相容性</strong>：<span class="math inline">\(\|Ax\| \le
+\|A\|_m \|x\|\)</span> 对所有 <span class="math inline">\(A \in
+\mathbb{C}^{n \times n}\)</span> 和 <span class="math inline">\(x \in
+\mathbb{C}^n\)</span> 成立；</p></li>
+<li><p><strong>单位范数</strong>：对单位矩阵 <span
+class="math inline">\(I\)</span>，<span class="math inline">\(\|I\|_m =
+1\)</span>。<em>（因为单位矩阵怎么作用于单位向量，其范数都不变）</em></p></li>
+</ol>
+<h3 id="常用算子范数例">常用算子范数例</h3>
+<h4 id="极大列和范数">极大列和范数</h4>
+<p><span class="math inline">\({\|A\|_1 = \max_{j} \sum_{i=1}^n
+|a_{ij}|}\)</span></p>
+<ul>
+<li><p>对矩阵的每一列，计算该列所有元素绝对值的和，然后取这些列和中的最大值。</p></li>
+<li><p>对应<strong>向量 1-范数</strong>诱导的算子范数。</p></li>
+</ul>
+<h4 id="谱范数">谱范数</h4>
+<p><span class="math inline">\({\|A\|_2 = \sqrt{\lambda_1}}\)</span>
+（其中 <span class="math inline">\(\lambda_1\)</span> 为 <strong><span
+class="math inline">\(A^H A\)</span> 的最大特征值</strong>）</p>
+<ul>
+<li><p>等于矩阵 <span class="math inline">\(A\)</span>
+的<strong>最大奇异值</strong>（即 <strong><span
+class="math inline">\(A^H A\)</span>
+最大特征值的平方根</strong>）。</p></li>
+<li><p>对应<strong>向量
+2-范数</strong>诱导的算子范数，具有<strong>酉不变性</strong>
+<em>（见F范数）</em>。</p></li>
+</ul>
+<h4 id="极大行和范数">极大行和范数</h4>
+<p><span class="math inline">\({\|A\|_\infty = \max_{i} \sum_{j=1}^n
+|a_{ij}|}\)</span>，</p>
+<ul>
+<li><p>对矩阵的每一行，计算该行所有元素绝对值的和，然后取这些行和中的最大值。</p></li>
+<li><p>对应<strong>向量 <span
+class="math inline">\(\infty\)</span>-范数</strong>诱导的算子范数。</p></li>
+</ul>
+<h2 id="hermite矩阵和正规矩阵">Hermite矩阵和正规矩阵</h2>
+<h3 id="定义-5">定义</h3>
+<p>设 <span class="math inline">\(A \in \mathbb{C}^{n \times
+n}\)</span>，则：</p>
+<ul>
+<li><p><strong>Hermite 矩阵</strong>：若 <span class="math inline">\(A^H
+= A\)</span>，则称 <span class="math inline">\(A\)</span> 为
+<strong>Hermite 矩阵</strong>。</p></li>
+<li><p><strong>反 Hermite 矩阵</strong>：若 <span
+class="math inline">\(A^H = -A\)</span>，则称 <span
+class="math inline">\(A\)</span> 为 <strong>反 Hermite
+矩阵</strong>。</p></li>
+<li><p><strong>正规矩阵</strong>：若 <span class="math inline">\(A^H A =
+A A^H\)</span>，则称 <span class="math inline">\(A\)</span> 为
+<strong>正规矩阵</strong>。</p></li>
+</ul>
+<h3 id="性质">性质</h3>
+<ul>
+<li><p><strong>Hermite
+矩阵</strong>：主对角线元素全为<strong>实数</strong>。</p></li>
+<li><p><strong>反 Hermite
+矩阵</strong>：主对角线元素全为<strong>零或纯虚数</strong>。</p></li>
+<li><p>实对称矩阵（<span class="math inline">\(A^T = A\)</span>）是
+Hermite 矩阵的特例。</p></li>
+<li><p>实反对称矩阵（<span class="math inline">\(A^T = -A\)</span>）是反
+Hermite 矩阵的特例。<em>（记的时候从这俩入手就好）</em></p></li>
+</ul>
+<h3 id="正规矩阵的包含关系">正规矩阵的包含关系</h3>
+<p>以下矩阵都是<strong>正规矩阵</strong>：</p>
+<ul>
+<li><p>对角矩阵</p></li>
+<li><p>实对称矩阵、实反对称矩阵 <span
+class="math inline">\((A^{T}=-A)\)</span></p></li>
+<li><p>Hermite 矩阵、反 Hermite 矩阵</p></li>
+<li><p>正交矩阵、酉矩阵</p></li>
+</ul>
+<h2 id="谱范数相关">谱范数相关</h2>
+<h3 id="谱范数的性质">谱范数的性质</h3>
+<p><em>定义回顾：<span class="math inline">\({\|A\|_2 =
+\sqrt{\lambda_1}}\)</span> （其中 <span
+class="math inline">\(\lambda_1\)</span> 为 <strong><span
+class="math inline">\(A^H A\)</span> 的最大特征值</strong>）</em></p>
+<p>设 <span class="math inline">\(U, V\)</span> 为酉矩阵。</p>
+<ul>
+<li><p><span class="math inline">\(\|UA\|_2 = \|AV\|_2 = \|UAV\|_2 =
+\|A\|_2\)</span>; <em>（上面提到过的酉不变性）</em></p></li>
+<li><p>若 <span class="math inline">\(A\)</span>
+是<strong>正规矩阵</strong> <em>（务必注意前提条件！）</em>，且 <span
+class="math inline">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span> 是
+<span class="math inline">\(A\)</span> 的 <span
+class="math inline">\(n\)</span> 个特征值，则<span
+class="math inline">\(\|A\|_2 = \max_{k} |\lambda_k|.\)</span></p></li>
+</ul>
+<p>另外还有：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|A^H\|_{m_1} &amp;= \|A\|_{m_1}, \quad \|A^H\|_F = \|A\|_F, \\
+\|A^H\|_{m_\infty} &amp;= \|A\|_{m_\infty}, \quad \|A^H\|_\infty =
+\|A\|_1, \\
+\|A^H\|_1 &amp;= \|A\|_\infty, \quad \|A^H\|_2 = \|A\|_2.
+\end{aligned}
+\]</span></p>
+<p><em>（共轭转置矩阵和原矩阵的 <span class="math inline">\(m_1\)</span>
+范数、 <span class="math inline">\(m_\infty\)</span>
+范数、F范数、极大行和范数、极大列和范数、谱范数都相等。）</em></p>
+<h3 id="例题展示">例题展示</h3>
+<p>设 <span class="math inline">\(U\)</span> 是酉矩阵，<span
+class="math inline">\(A = \begin{pmatrix} -1 &amp; i &amp; 0 \\ -i &amp;
+0 &amp; -i \\ 0 &amp; i &amp; -1 \end{pmatrix}\)</span>，试计算
+$_{|x|_1=4} |Ax|<em>1 $ 及 $ </em>{|Ux|_2=3} |Ax|_2.$</p>
+<p><strong>解：</strong></p>
+<p>首先设 <span class="math inline">\(x = 4y\)</span>，则 <span
+class="math display">\[
+\max_{\|x\|_1=4} \|Ax\|_1 = \max_{\|y\|_1=1} 4\|Ay\|_1 = 4\|A\|_1 = 8.
+\]</span></p>
+<p>其次设 <span class="math inline">\(x = 3U^H y\)</span>，则 <span
+class="math display">\[
+\max_{\|Ux\|_2=3} \|Ax\|_2 = \max_{\|y\|_2=1} 3\|AU^H y\|_2 =
+3\|AU^H\|_2 = 3\|A\|_2.
+\]</span></p>
+<p>而 <span class="math inline">\(A\)</span> 是 Hermite 矩阵，其特征值为
+<span class="math inline">\(\lambda_1 = -2, \lambda_2 = -1, \lambda_3 =
+1\)</span>。所以 <span class="math display">\[
+\max_{\|Ux\|_2=3} \|Ax\|_2 = 3\|A\|_2 = 3|\lambda_1| = 6.
+\]</span></p>
+<h2 id="矩阵范数与向量范数的相容性">矩阵范数与向量范数的相容性</h2>
+<p><em>To be continued…（PDF到Lesson1 范数空间01 的
+117/135页（PDF页码，右下角是44/50））</em></p>
 
     </div>
 
@@ -592,7 +792,7 @@ class="math inline">\(A^T\)</span>相同，故实空间的酉矩阵就是正交�
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-01-%E8%B7%9D%E7%A6%BB%E4%B8%8E%E8%8C%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">Lesson 01 距离与范数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E5%92%8C%E8%B7%9D%E7%A6%BB%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.</span> <span class="nav-text">距离和距离空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B"><span class="nav-number">2.1.2.</span> <span class="nav-text">例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#l1%E8%B7%9D%E7%A6%BB"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">\(L1\)距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#l2%E8%B7%9D%E7%A6%BB"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">\(L2\)距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linfty%E8%B7%9D%E7%A6%BB"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">\(L\infty\)距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lp-%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">\(l^p\) 空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linfty-%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">\(l^\infty\)
-空间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E9%99%90%E4%B8%8E%E6%94%B6%E6%95%9B"><span class="nav-number">2.2.</span> <span class="nav-text">极限与收敛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cauchy%E5%88%97%E4%B8%8E%E5%AE%8C%E5%A4%87"><span class="nav-number">2.3.</span> <span class="nav-text">Cauchy列与完备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E6%95%B0%E5%92%8C%E8%B5%8B%E8%8C%83%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.</span> <span class="nav-text">范数和赋范线性空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%AE%9A%E4%B9%89"><span class="nav-number">2.4.1.</span> <span class="nav-text">直接定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">碎碎念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#banach%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.2.</span> <span class="nav-text">Banach空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2"><span class="nav-number">2.4.3.</span> <span class="nav-text">例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E5%BC%BA%E4%BA%8E%E5%92%8C%E7%AD%89%E4%BB%B7"><span class="nav-number">2.4.4.</span> <span class="nav-text">范数的强于和等价</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%88%A4%E5%AE%9A"><span class="nav-number">2.4.4.2.</span> <span class="nav-text">其他判定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E8%8C%83%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">2.4.5.</span> <span class="nav-text">赋范线性空间的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.</span> <span class="nav-text">向量范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3"><span class="nav-number">2.5.2.</span> <span class="nav-text">例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">1-范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8C%83%E6%95%B0-1"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">2-范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#infty-%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.2.3.</span> <span class="nav-text">\(\infty\)-范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.2.4.</span> <span class="nav-text">p-范数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0%E4%B8%8E%E9%85%89%E7%9F%A9%E9%98%B5"><span class="nav-number">2.6.</span> <span class="nav-text">矩阵范数与酉矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">2.6.1.</span> <span class="nav-text">矩阵范数定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4"><span class="nav-number">2.6.2.</span> <span class="nav-text">例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#m_1%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.2.1.</span> <span class="nav-text">\(m_1\)范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#m_infty%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.2.2.</span> <span class="nav-text">\(m_\infty\)范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f%E8%8C%83%E6%95%B0frobenius-%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.2.3.</span> <span class="nav-text">\(F\)范数（Frobenius 范数）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%89%E7%9F%A9%E9%98%B5%E5%AE%9A%E4%B9%89"><span class="nav-number">2.6.3.</span> <span class="nav-text">酉矩阵定义</span></a></li></ol></li></ol></li></ol></div>
+空间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E9%99%90%E4%B8%8E%E6%94%B6%E6%95%9B"><span class="nav-number">2.2.</span> <span class="nav-text">极限与收敛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cauchy%E5%88%97%E4%B8%8E%E5%AE%8C%E5%A4%87"><span class="nav-number">2.3.</span> <span class="nav-text">Cauchy列与完备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E6%95%B0%E5%92%8C%E8%B5%8B%E8%8C%83%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.</span> <span class="nav-text">范数和赋范线性空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%AE%9A%E4%B9%89"><span class="nav-number">2.4.1.</span> <span class="nav-text">直接定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">碎碎念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#banach%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.2.</span> <span class="nav-text">Banach空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2"><span class="nav-number">2.4.3.</span> <span class="nav-text">例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E5%BC%BA%E4%BA%8E%E5%92%8C%E7%AD%89%E4%BB%B7"><span class="nav-number">2.4.4.</span> <span class="nav-text">范数的强于和等价</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%88%A4%E5%AE%9A"><span class="nav-number">2.4.4.2.</span> <span class="nav-text">其他判定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E8%8C%83%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">2.4.5.</span> <span class="nav-text">赋范线性空间的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.</span> <span class="nav-text">向量范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3"><span class="nav-number">2.5.2.</span> <span class="nav-text">例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">1-范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8C%83%E6%95%B0-1"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">2-范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#infty-%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.2.3.</span> <span class="nav-text">\(\infty\)-范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-%E8%8C%83%E6%95%B0"><span class="nav-number">2.5.2.4.</span> <span class="nav-text">p-范数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0%E4%B8%8E%E9%85%89%E7%9F%A9%E9%98%B5"><span class="nav-number">2.6.</span> <span class="nav-text">矩阵范数与酉矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">2.6.1.</span> <span class="nav-text">矩阵范数定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4"><span class="nav-number">2.6.2.</span> <span class="nav-text">例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#m_1%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.2.1.</span> <span class="nav-text">\(m_1\)范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#m_infty%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.2.2.</span> <span class="nav-text">\(m_\infty\)范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f%E8%8C%83%E6%95%B0frobenius-%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.2.3.</span> <span class="nav-text">\(F\)范数（Frobenius 范数）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%89%E7%9F%A9%E9%98%B5%E5%AE%9A%E4%B9%89"><span class="nav-number">2.6.3.</span> <span class="nav-text">酉矩阵定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%89%E7%9F%A9%E9%98%B5%E6%80%A7%E8%B4%A8"><span class="nav-number">2.6.4.</span> <span class="nav-text">酉矩阵性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%89%E4%B8%8D%E5%8F%98%E6%80%A7"><span class="nav-number">2.6.5.</span> <span class="nav-text">酉不变性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0%E7%9A%84%E7%9B%B8%E4%BC%BC%E4%B8%8D%E5%8F%98%E6%80%A7%E5%AE%9A%E7%90%86"><span class="nav-number">2.6.6.</span> <span class="nav-text">矩阵范数的相似不变性定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E5%AD%90%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.7.</span> <span class="nav-text">算子范数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-4"><span class="nav-number">2.6.7.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%AE%97%E5%AD%90%E8%8C%83%E6%95%B0%E4%BE%8B"><span class="nav-number">2.6.8.</span> <span class="nav-text">常用算子范数例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%81%E5%A4%A7%E5%88%97%E5%92%8C%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.8.1.</span> <span class="nav-text">极大列和范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%B1%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.8.2.</span> <span class="nav-text">谱范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%81%E5%A4%A7%E8%A1%8C%E5%92%8C%E8%8C%83%E6%95%B0"><span class="nav-number">2.6.8.3.</span> <span class="nav-text">极大行和范数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hermite%E7%9F%A9%E9%98%B5%E5%92%8C%E6%AD%A3%E8%A7%84%E7%9F%A9%E9%98%B5"><span class="nav-number">2.7.</span> <span class="nav-text">Hermite矩阵和正规矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-5"><span class="nav-number">2.7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">2.7.2.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E8%A7%84%E7%9F%A9%E9%98%B5%E7%9A%84%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB"><span class="nav-number">2.7.3.</span> <span class="nav-text">正规矩阵的包含关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%B1%E8%8C%83%E6%95%B0%E7%9B%B8%E5%85%B3"><span class="nav-number">2.8.</span> <span class="nav-text">谱范数相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%B1%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">2.8.1.</span> <span class="nav-text">谱范数的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98%E5%B1%95%E7%A4%BA"><span class="nav-number">2.8.2.</span> <span class="nav-text">例题展示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0%E4%B8%8E%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E7%9A%84%E7%9B%B8%E5%AE%B9%E6%80%A7"><span class="nav-number">2.9.</span> <span class="nav-text">矩阵范数与向量范数的相容性</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -663,12 +863,12 @@ class="math inline">\(A^T\)</span>相同，故实空间的酉矩阵就是正交�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">3k</span>
+    <span title="站点总字数">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">10 分钟</span>
+    <span title="站点阅读时长">15 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
