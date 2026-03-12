@@ -36,3 +36,8 @@ code {
   border-radius: 3px;
   font-size: 18px;
 }
+.post-body {
+  text-align: left;
+  text-justify: auto;
+  hyphens: none;
+}

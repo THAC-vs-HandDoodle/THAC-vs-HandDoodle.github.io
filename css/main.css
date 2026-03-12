@@ -1,3 +1,8 @@
+.post-body {
+  text-align: left;
+  text-justify: auto;
+  hyphens: none;
+}
 body {
   background: url("/uploads/background.jpg");
   background-repeat: no-repeat;
@@ -1238,7 +1243,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff44c6;
+  background: #e74701;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2590,4 +2595,9 @@ code {
   background: #f9f2f4;
   border-radius: 3px;
   font-size: 18px;
+}
+.post-body {
+  text-align: left;
+  text-justify: auto;
+  hyphens: none;
 }
