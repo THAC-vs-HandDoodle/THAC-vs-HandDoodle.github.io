@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>SBTI · 精神状态鉴定中心</title>
+    <!-- 引入搞笑风格字体 (Press Start 2P 像素风 / Comic Neue 搞怪) -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(145deg, #1a0033 0%, #2d004f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Comic Neue', cursive;
+            padding: 16px;
+            margin: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* 闪烁星星背景 (伪) */
+        body::before {
+            content: "⚡💤🍔🍕🧠🌀💊";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 32px;
+            opacity: 0.1;
+            white-space: nowrap;
+            width: 100%;
+            pointer-events: none;
+        }
+        .test-container {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(10, 2, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 4px solid #ff66c4;
+            box-shadow: 0 0 30px #ff00c1, inset 0 0 10px #00ffff;
+            border-radius: 48px 48px 24px 24px;
+            padding: 24px 20px 32px;
+            color: #f0e6ff;
+            transition: all 0.2s;
+        }
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 28px;
+            text-align: center;
+            color: #ffde59;
+            text-shadow: 5px 5px 0 #b847b0, 0 0 20px #00ffff;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            word-break: break-word;
+        }
+        .subhead {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #a0f0ff;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ff66c4;
+            padding-bottom: 12px;
+        }
+        .progress-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            background: #2a103c;
+            padding: 10px 16px;
+            border-radius: 40px;
+            border: 2px solid cyan;
+        }
+        .progress-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffb3ff;
+        }
+        .progress-bar-bg {
+            flex: 1;
+            height: 14px;
+            background: #110022;
+            border-radius: 20px;
+            margin: 0 15px;
+            border: 1px solid magenta;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff00d4, #ffae00);
+            box-shadow: 0 0 12px yellow;
+            border-radius: 20px;
+            transition: width 0.2s ease;
+        }
+        .question-box {
+            background: #1e0a2b;
+            border: 3px ridge #ff7bff;
+            border-radius: 36px;
+            padding: 24px 16px;
+            margin-bottom: 24px;
+            box-shadow: inset 0 0 30px #00000066, 0 10px 0 #3e1a4b;
+        }
+        .question-text {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 28px;
+            color: #fff5d9;
+            text-shadow: 2px 2px 0 #aa00aa;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .option-btn {
+            background: #2e1444;
+            border: 3px solid #00e5ff;
+            color: #e6d9ff;
+            padding: 16px 18px;
+            border-radius: 60px;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Comic Neue', cursive;
+            text-align: left;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #0f0033, 0 0 12px #00ccff55;
+            transition: all 0.05s ease-in;
+            backdrop-filter: blur(4px);
+        }
+        .option-btn:hover {
+            background: #4f1e6b;
+            border-color: #ffb3ff;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #0f0033, 0 0 20px #ff88ff;
+        }
+        .option-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #0f0033;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .btn {
+            background: #ff66c4;
+            border: none;
+            border-bottom: 6px solid #990066;
+            color: #0a0015;
+            font-weight: 900;
+            font-size: 20px;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-family: 'Press Start 2P', cursive;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #4d004d, 0 0 15px hotpink;
+            transition: 0.05s linear;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #4d004d, 0 0 20px yellow;
+        }
+        .btn:disabled {
+            opacity: 0.4;
+            transform: none;
+            pointer-events: none;
+            filter: grayscale(0.6);
+        }
+        .btn-secondary {
+            background: #8f71ff;
+            border-bottom-color: #3b1f8f;
+            box-shadow: 0 6px 0 #2f0f5f, 0 0 10px #a3a3ff;
+        }
+        .result-screen {
+            text-align: center;
+        }
+        .sbti-badge {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 56px;
+            background: black;
+            display: inline-block;
+            padding: 20px 30px;
+            margin: 20px 0;
+            border: 8px double #ff00ff;
+            color: #ffde00;
+            text-shadow: 8px 8px 0 #ff0080;
+            letter-spacing: 10px;
+            border-radius: 30px;
+            box-shadow: 0 0 50px cyan;
+            word-break: break-word;
+        }
+        .persona-name {
+            font-size: 42px;
+            font-weight: 900;
+            color: #a6ff00;
+            text-shadow: 4px 4px 0 #0033cc;
+            margin: 10px 0;
+        }
+        .fullname {
+            font-size: 24px;
+            color: #ccccff;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .description {
+            background: #1f1033;
+            padding: 22px 18px;
+            border-radius: 32px;
+            border-left: 10px solid #ff66c4;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .restart-btn {
+            margin-top: 24px;
+            width: 100%;
+        }
+        .footer-note {
+            margin-top: 24px;
+            color: #bbaacc;
+            font-size: 14px;
+            text-align: center;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .quote {
+            font-size: 22px;
+            color: #ffaef0;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="test-container" id="appContainer">
+    <h1>SBTI</h1>
+    <div class="subhead">🤪 精神状态官方认证 🤪</div>
+
+    <!-- 测试区域 (题目页) -->
+    <div id="quizArea">
+        <div class="progress-area">
+            <span class="progress-text" id="questionCounter">第1/20题</span>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill" style="width: 5%;"></div>
+            </div>
+            <span style="font-size:20px;">🧃</span>
+        </div>
+        <div class="question-box">
+            <div class="question-text" id="questionText">加载题目中...</div>
+            <div class="options" id="optionsContainer"></div>
+        </div>
+        <div class="nav-buttons">
+            <button class="btn btn-secondary" id="prevBtn" disabled>◀ 上一题</button>
+            <button class="btn" id="nextBtn">下一题 ▶</button>
+        </div>
+    </div>
+
+    <!-- 结果区域 -->
+    <div id="resultArea" class="result-screen hidden">
+        <div style="font-size:28px; margin-bottom: 10px;">📋 你的诊断报告</div>
+        <div class="sbti-badge" id="resultCode">XXXX</div>
+        <div class="persona-name" id="personaName">F.U.C.K.</div>
+        <div class="fullname" id="fullName">Freaking Unhinged Chaotic Kalm</div>
+        <div class="description" id="resultDesc">
+            正在解码你的精神状态...
+        </div>
+        <div class="quote" id="resultQuote">“ ”</div>
+        <button class="btn restart-btn" id="restartBtn">🔁 再测一次 (病情会加重)</button>
+        <div class="footer-note">*本测试基于量子力学与食堂菜谱研发，仅供娱乐。</div>
+    </div>
+</div>
+
+<script>
+    (function(){
+        "use strict";
+
+        // ---------- 题库 (题目、选项、影响维度) ----------
+        const questions = [
+            {
+                text: "周末早上10点，你通常的状态是？",
+                options: [
+                    { text: "A. 已经出门和朋友约brunch了。", scores: { S:1, E:1 } },
+                    { text: "B. 醒了但不想起，点个外卖继续躺着。", scores: { C:1, E:1 } },
+                    { text: "C. 还没睡醒，昨晚修仙到凌晨4点。", scores: { S:1, Spiritual:1 } },
+                    { text: "D. 醒了，但睁着眼发呆到中午。", scores: { C:1, Z:1 } }
+                ]
+            },
+            {
+                text: "朋友约你去一个人很多的聚会，你的第一反应？",
+                options: [
+                    { text: "A. 好啊！几点？在哪？", scores: { S:1 } },
+                    { text: "B. 内心抗拒，但不好意思拒绝。", scores: { C:1, M:1 } },
+                    { text: "C. 去可以，但我要先吃一顿。", scores: { E:1, L:1 } },
+                    { text: "D. 找借口：“啊，我那天刚好要洗衣服。”", scores: { C:1, Z:1 } }
+                ]
+            },
+            {
+                text: "做重要决定时，你更倾向于？",
+                options: [
+                    { text: "A. 列个Excel表分析利弊。", scores: { L:1 } },
+                    { text: "B. 抛硬币，或者问玄学博主。", scores: { M:1, Spiritual:1 } },
+                    { text: "C. 跟着感觉走，相信第六感。", scores: { M:1 } },
+                    { text: "D. 先放一放，等死线逼我再决定。", scores: { D:1, Z:1 } }
+                ]
+            },
+            {
+                text: "你的工位/书桌通常是？",
+                options: [
+                    { text: "A. 整洁有序，东西归类。", scores: { L:1, D:1 } },
+                    { text: "B. 表面乱但我知道东西在哪。", scores: { M:1, Z:1 } },
+                    { text: "C. 堆满了零食和饮料。", scores: { E:1 } },
+                    { text: "D. 除了手机和充电线啥也没有。", scores: { Spiritual:1, Z:1 } }
+                ]
+            },
+            {
+                text: "有人在你面前插队，你会？",
+                options: [
+                    { text: "A. 直接出声制止：“同学/师傅，排队好吗？”", scores: { S:1, L:1 } },
+                    { text: "B. 内心咒骂一万遍，但脸上毫无波澜。", scores: { C:1, M:1 } },
+                    { text: "C. 默默掏出手机拍下视频发抖音。", scores: { M:1, S:1 } },
+                    { text: "D. 算了，多一事不如少一事。", scores: { Z:1, C:1 } }
+                ]
+            },
+            {
+                text: "关于吃饭这件事，你的态度是？",
+                options: [
+                    { text: "A. 人生的意义就是吃！到点必须干饭。", scores: { E:1 } },
+                    { text: "B. 经常忘记吃饭，或者随便对付一口。", scores: { Spiritual:1 } },
+                    { text: "C. 吃饭是为了活着，但必须吃好的。", scores: { E:1, L:1 } },
+                    { text: "D. 心情不好就不吃，心情好就大吃。", scores: { M:1, E:1 } }
+                ]
+            },
+            {
+                text: "任务截止时间是明天，你现在进度0%，你会？",
+                options: [
+                    { text: "A. 疯狂赶工，咖啡续命。", scores: { D:1 } },
+                    { text: "B. 先刷半小时手机压压惊。", scores: { Z:1, M:1 } },
+                    { text: "C. 做详细的时间规划，精确到分钟。", scores: { L:1, D:1 } },
+                    { text: "D. 思考人生的意义，然后决定下次一定。", scores: { Z:1, Spiritual:1 } }
+                ]
+            },
+            {
+                text: "你更符合以下哪种描述？",
+                options: [
+                    { text: "A. 我是朋友圈里的气氛组组长。", scores: { S:1 } },
+                    { text: "B. 我在群里只潜水，偶尔发个表情包。", scores: { C:1 } },
+                    { text: "C. 我经常被朋友当成情绪垃圾桶。", scores: { M:1, C:1 } },
+                    { text: "D. 我有一套自己的人生哲学，经常思考宇宙。", scores: { Spiritual:1 } }
+                ]
+            },
+            {
+                text: "看到网上有人发表离谱言论，你会？",
+                options: [
+                    { text: "A. 逻辑清晰地逐条反驳。", scores: { L:1, S:1 } },
+                    { text: "B. 在心里骂一句“傻X”，然后划走。", scores: { M:1, C:1 } },
+                    { text: "C. 分享给朋友一起吐槽。", scores: { S:1, M:1 } },
+                    { text: "D. 关我屁事，继续刷下一个视频。", scores: { Z:1 } }
+                ]
+            },
+            {
+                text: "你觉得自己是哪种“艺术家”？",
+                options: [
+                    { text: "A. 生活的艺术家——擅长把日子过得有滋有味。", scores: { E:1 } },
+                    { text: "B. 行为艺术家——经常做出迷惑行为。", scores: { M:1 } },
+                    { text: "C. 拖延艺术家——不到最后一刻绝不动工。", scores: { Z:1 } },
+                    { text: "D. 批判艺术家——对一切都有自己独到的见解。", scores: { L:1 } }
+                ]
+            },
+            {
+                text: "小组作业中，你通常扮演什么角色？",
+                options: [
+                    { text: "A. 领导者，分配任务催促进度。", scores: { S:1, D:1 } },
+                    { text: "B. 服从者，别人安排啥我做啥。", scores: { C:1 } },
+                    { text: "C. 摆烂者，最后被拖着走。", scores: { Z:1 } },
+                    { text: "D. 技术大神，默默搞定最难的部分。", scores: { L:1, Spiritual:1 } }
+                ]
+            },
+            {
+                text: "你的“精神状态”头像更接近？",
+                options: [
+                    { text: "A. 一只活力满满的狗。", scores: { S:1 } },
+                    { text: "B. 一只瘫在沙发上的猫。", scores: { C:1, Z:1 } },
+                    { text: "C. 一个扭曲变形的表情包。", scores: { M:1 } },
+                    { text: "D. 一桌丰盛的食物。", scores: { E:1 } }
+                ]
+            },
+            {
+                text: "面对突如其来的空闲时间，你会？",
+                options: [
+                    { text: "A. 立刻呼朋唤友找乐子。", scores: { S:1 } },
+                    { text: "B. 终于可以一个人待着了！", scores: { C:1 } },
+                    { text: "C. 脑子开始胡思乱想，焦虑未来。", scores: { M:1, D:1 } },
+                    { text: "D. 睡觉，谁也别叫我。", scores: { Z:1, Spiritual:1 } }
+                ]
+            },
+            {
+                text: "你相信以下哪种说法？",
+                options: [
+                    { text: "A. 事在人为，努力一定有回报。", scores: { L:1, D:1 } },
+                    { text: "B. 一切都是最好的安排。", scores: { Z:1, Spiritual:1 } },
+                    { text: "C. 三分天注定，七分靠打拼，剩下九十分看命。", scores: { M:1, Z:1 } },
+                    { text: "D. 吃饱了才有力气想这些。", scores: { E:1 } }
+                ]
+            },
+            {
+                text: "朋友半夜发消息说“我好难过”，你会？",
+                options: [
+                    { text: "A. 秒回，开启知心大姐模式。", scores: { S:1, M:1 } },
+                    { text: "B. 不知道怎么回，隔了很久发个“抱抱”表情。", scores: { C:1 } },
+                    { text: "C. 认真帮Ta分析问题并提供解决方案。", scores: { L:1 } },
+                    { text: "D. 假装已经睡了，第二天再回。", scores: { C:1, Z:1 } }
+                ]
+            },
+            {
+                text: "你觉得“卷”这个词离你远吗？",
+                options: [
+                    { text: "A. 我就是卷王本王。", scores: { D:1 } },
+                    { text: "B. 卷不动，躺不平，仰卧起坐。", scores: { M:1, Z:1 } },
+                    { text: "C. 卷什么卷，干饭要紧。", scores: { E:1 } },
+                    { text: "D. 我在自己的赛道里独自修炼。", scores: { Spiritual:1 } }
+                ]
+            },
+            {
+                text: "如果要养宠物，你会选？",
+                options: [
+                    { text: "A. 狗，能陪我玩。", scores: { S:1 } },
+                    { text: "B. 猫，各过各的偶尔贴贴。", scores: { C:1 } },
+                    { text: "C. 乌龟或者植物，好养活。", scores: { Z:1 } },
+                    { text: "D. 电子宠物，甚至电子宠物都养死了。", scores: { Spiritual:1, M:1 } }
+                ]
+            },
+            {
+                text: "你对于“计划”的态度是？",
+                options: [
+                    { text: "A. 必须有计划，并严格执行。", scores: { L:1, D:1 } },
+                    { text: "B. 计划赶不上变化，随缘吧。", scores: { Z:1 } },
+                    { text: "C. 计划是用来打破的，主打一个刺激。", scores: { M:1 } },
+                    { text: "D. 我的计划就是“随机应变”。", scores: { Spiritual:1 } }
+                ]
+            },
+            {
+                text: "哪种情况更让你崩溃？",
+                options: [
+                    { text: "A. 手机电量低于20%。", scores: { D:1 } },
+                    { text: "B. 突然被cue上台发言。", scores: { C:1 } },
+                    { text: "C. 外卖迟到半小时。", scores: { E:1 } },
+                    { text: "D. 大脑里单曲循环一首土嗨歌曲。", scores: { M:1 } }
+                ]
+            },
+            {
+                text: "最后，你觉得自己是个什么样的人？",
+                options: [
+                    { text: "A. 一个平平无奇的干饭小天才。", scores: { E:1 } },
+                    { text: "B. 一个精神世界丰富的哲学家。", scores: { Spiritual:1 } },
+                    { text: "C. 一个正在发疯的普通人。", scores: { M:1 } },
+                    { text: "D. 一个看破红尘的摆烂大师。", scores: { Z:1 } }
+                ]
+            }
+        ];
+
+        // ---------- 16型人格映射表 ----------
+        const personalityMap = {
+            "SELD": {
+                nickname: "SELDOM",
+                full: "Social Eating Logical Deadline",
+                desc: "平时很正常，死线前会变身成超级赛亚人。你拥有社牛体质和干饭之魂，逻辑清晰但唯独在截止日期前会爆发出惊人战斗力。",
+                quote: "“不急，还有五分钟，我能创造一个宇宙。”"
+            },
+            "SELZ": {
+                nickname: "SELLOUT",
+                full: "Social Eating Logical Zen",
+                desc: "社牛干饭有逻辑，但已经看破红尘选择摆烂。你一边和朋友约饭，一边内心毫无波澜。",
+                quote: "“行吧，都行，先点菜。”"
+            },
+            "SEMD": {
+                nickname: "SEMEN",
+                full: "Social Eating Mad Deadline",
+                desc: "干饭社交第一名，死线前发疯是日常。你的精神状态在“哈哈哈哈”和“救命啊”之间反复横跳。",
+                quote: "“这个班/学就上到这里，我去发个疯。”"
+            },
+            "SEMZ": {
+                nickname: "SEEMS",
+                full: "Social Eating Mad Zen",
+                desc: "看着像个人，其实内心已经发疯并躺平。你完美融合了社牛的外表和破碎的内在。",
+                quote: "“I'm fine. (内心：啊啊啊啊)”"
+            },
+            "SSLD": {
+                nickname: "SUS",
+                full: "Social Spiritual Logical Deadline",
+                desc: "一边社牛一边修仙，逻辑清晰地赶死线。你可以在凌晨三点冥想后，用清晰的头脑完成报告。",
+                quote: "“能量很混乱，但deadline很清醒。”"
+            },
+            "SSLZ": {
+                nickname: "SIZZLE",
+                full: "Social Spiritual Logical Zen",
+                desc: "嘴上社交身体修仙，脑子清醒但就是不动。你的灵魂已经达到了 next level。",
+                quote: "“我悟了，所以我躺了。”"
+            },
+            "SSMD": {
+                nickname: "SCHISM",
+                full: "Social Spiritual Mad Deadline",
+                desc: "人格分裂：又社牛又修仙，死线前彻底发疯。你就是行走的矛盾体。",
+                quote: "“嘻嘻，不嘻嘻，嘻嘻……”"
+            },
+            "SSMZ": {
+                nickname: "SCHMOOZE",
+                full: "Social Spiritual Mad Zen",
+                desc: "在社交、修仙、发疯、摆烂之间反复横跳。没有人能预判你的下一步。",
+                quote: "“啊对对对，啊是是是。”"
+            },
+            "CELD": {
+                nickname: "CELL",
+                full: "Coward Eating Logical Deadline",
+                desc: "社恐干饭人，逻辑清晰，靠死线驱动生命。你的能量条只在干饭和死线时充满。",
+                quote: "“别跟我说话，除非你带着吃的。”"
+            },
+            "CELZ": {
+                nickname: "CELLO",
+                full: "Coward Eating Logical Zen",
+                desc: "社恐但爱干饭，逻辑告诉我：摆烂吧。你在逃避社交的同时疯狂摄入碳水。",
+                quote: "“外面太危险了，我点个外卖压压惊。”"
+            },
+            "CEMD": {
+                nickname: "CHEM",
+                full: "Coward Eating Mad Deadline",
+                desc: "社恐干饭，但死线临近时会进入疯批状态。你平时安静如鸡，死线前变成尖叫鸡。",
+                quote: "“别管我，让我创死这个世界！”"
+            },
+            "CEMZ": {
+                nickname: "DRUNK",   // 明星人格
+                full: "Coward Eating Mad Zen · 醉酒型",
+                desc: "社恐干饭，内心发疯，表面岁月静好。你是典型的精神醉酒状态——看似平静，其实脑子已经断片了。",
+                quote: "“我没醉……我只是……和这个世界不太熟。”"
+            },
+            "CSLD": {
+                nickname: "CURSED",
+                full: "Coward Spiritual Logical Deadline",
+                desc: "社恐修仙，逻辑极强但永远被死线诅咒。你总是在最后关头才爆发出小宇宙。",
+                quote: "“我恨这个世界，但我能解这道题。”"
+            },
+            "CSLZ": {
+                nickname: "CHASM",
+                full: "Coward Spiritual Logical Zen",
+                desc: "深渊型人格：社恐修仙有逻辑，但就是不想动。你在脑内构建了宇宙，现实中一动不动。",
+                quote: "“zzzZZZ……（大脑还在高速运转）”"
+            },
+            "CSMD": {
+                nickname: "CHAOS",
+                full: "Coward Spiritual Mad Deadline",
+                desc: "社恐修仙，死线前精神世界彻底崩坏。你是一个行走的混乱能量体。",
+                quote: "“别催了，再催我就原地升天。”"
+            },
+            "CSMZ": {
+                nickname: "ZZZZ",    // 明星人格
+                full: "Coward Spiritual Mad Zen · 睡死了型",
+                desc: "零社交零食欲，大脑在发疯身体在躺平。你的人生终极目标是和被子结婚。",
+                quote: "“Zzzzzz……(翻译：世界再见)”"
+            }
+        };
+
+        // 额外明星人格强行映射 (SEMZ虽然已经有，但我们可以再给个别名，但已够用)
+        // 让 FUCK 对应某个结果：可以定为 SSMD 或 SSMZ 之类的，为了搞怪我们强行指定一个彩蛋。
+        // 当检测到特定组合时显示 FUCK (但为了严谨，在结果展示时对 SEMZ 再处理？)
+        // 我们用更骚的方式：在得到缩写后，对特定缩写再套一个“彩蛋昵称”
+        const easterEggNick = {
+            "SEMZ": "F.U.C.K.",   // Freaking Unhinged Chaotic Kalm
+            "CEMZ": "DRUNK",
+            "CSMZ": "ZZZZ"
+        };
+        const easterFull = {
+            "SEMZ": "Freaking Unhinged Chaotic Kalm",
+            "CEMZ": "Delusional Rambling Under No Kontrol",
+            "CSMZ": "Zero Zest, Zero Zip"
+        };
+
+        // ---------- 状态 ----------
+        let currentIndex = 0;                // 0-19
+        let answers = new Array(20).fill(null); // 存储每道题所选选项索引 (0~3)
+        
+        // 维度分数 (累加)
+        let scores = {
+            S: 0, C: 0,
+            E: 0, Spiritual: 0,
+            L: 0, M: 0,
+            D: 0, Z: 0
+        };
+
+        // DOM 元素
+        const quizArea = document.getElementById('quizArea');
+        const resultArea = document.getElementById('resultArea');
+        const questionText = document.getElementById('questionText');
+        const optionsDiv = document.getElementById('optionsContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const questionCounter = document.getElementById('questionCounter');
+        const progressFill = document.getElementById('progressFill');
+        const restartBtn = document.getElementById('restartBtn');
+        
+        const resultCode = document.getElementById('resultCode');
+        const personaName = document.getElementById('personaName');
+        const fullName = document.getElementById('fullName');
+        const resultDesc = document.getElementById('resultDesc');
+        const resultQuote = document.getElementById('resultQuote');
+
+        // ---------- 辅助函数 ----------
+        function calculateScoresFromAnswers() {
+            // 重置分数
+            scores = { S:0, C:0, E:0, Spiritual:0, L:0, M:0, D:0, Z:0 };
+            for (let i=0; i<questions.length; i++) {
+                const ansIdx = answers[i];
+                if (ansIdx === null) continue; // 理论上不会
+                const selectedOpt = questions[i].options[ansIdx];
+                const inc = selectedOpt.scores;
+                for (let dim in inc) {
+                    if (scores.hasOwnProperty(dim)) {
+                        scores[dim] += inc[dim];
+                    }
+                }
+            }
+        }
+
+        function determineSBTI() {
+            const first = scores.S > scores.C ? 'S' : 'C';
+            const second = scores.E > scores.Spiritual ? 'E' : 'S';
+            const third = scores.L > scores.M ? 'L' : 'M';
+            const fourth = scores.D > scores.Z ? 'D' : 'Z';
+            return first + second + third + fourth;
+        }
+
+        function renderQuestion(index) {
+            const q = questions[index];
+            questionText.textContent = q.text;
+            // 生成选项按钮
+            optionsDiv.innerHTML = '';
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt.text;
+                if (answers[index] === optIdx) {
+                    btn.style.background = '#7a2e8a';
+                    btn.style.borderColor = '#ffff00';
+                    btn.style.boxShadow = '0 0 20px gold';
+                }
+                btn.addEventListener('click', () => {
+                    // 选择答案
+                    answers[index] = optIdx;
+                    renderQuestion(index); // 刷新高亮
+                    // 自动跳到下一题？为了流畅，我们不做自动跳转，让用户点下一题
+                    // 但启用下一题按钮
+                    updateNavButtons();
+                });
+                optionsDiv.appendChild(btn);
+            });
+            
+            // 更新计数和进度
+            questionCounter.textContent = `第${index+1}/${questions.length}题`;
+            const progressPercent = ((index+1) / questions.length) * 100;
+            progressFill.style.width = progressPercent + '%';
+            
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            prevBtn.disabled = (currentIndex === 0);
+            if (currentIndex === questions.length - 1) {
+                nextBtn.textContent = '📊 看结果';
+            } else {
+                nextBtn.textContent = '下一题 ▶';
+            }
+            // 如果当前题目未选答案，不能进入下一题？
+            // 我们允许跳过？为了体验，建议必选。但可以用提醒。 
+            // 简单处理：不限制，但计算时若answers有null将导致分数丢失。最好强制选。
+            if (answers[currentIndex] === null) {
+                nextBtn.disabled = true;
+            } else {
+                nextBtn.disabled = false;
+            }
+        }
+
+        function goToNext() {
+            if (answers[currentIndex] === null) {
+                alert('🤔 选一个吧，不然测出来不准！');
+                return;
+            }
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
+                renderQuestion(currentIndex);
+            } else {
+                // 完成测试，计算结果
+                finishAndShowResult();
+            }
+        }
+
+        function goToPrev() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion(currentIndex);
+            }
+        }
+
+        function finishAndShowResult() {
+            // 确保所有题目都有答案 (防御)
+            if (answers.includes(null)) {
+                alert('⚠️ 有题目漏选了，请检查！');
+                return;
+            }
+            calculateScoresFromAnswers();
+            const code = determineSBTI();
+            
+            // 获取基础人格
+            let persona = personalityMap[code];
+            if (!persona) {
+                // fallback (极不可能)
+                persona = {
+                    nickname: code,
+                    full: "未知生物",
+                    desc: "你的精神状态已经超出了我们的认知范围。",
+                    quote: "?"
+                };
+            }
+            
+            // 彩蛋覆盖
+            let displayNick = persona.nickname;
+            let displayFull = persona.full;
+            if (easterEggNick[code]) {
+                displayNick = easterEggNick[code];
+                displayFull = easterFull[code] || persona.full;
+            }
+            
+            // 渲染结果
+            resultCode.textContent = code;
+            personaName.textContent = displayNick;
+            fullName.textContent = displayFull;
+            resultDesc.textContent = persona.desc;
+            resultQuote.textContent = `“${persona.quote}”`;
+            
+            // 切换界面
+            quizArea.classList.add('hidden');
+            resultArea.classList.remove('hidden');
+        }
+
+        function restartTest() {
+            // 重置
+            currentIndex = 0;
+            answers = new Array(20).fill(null);
+            scores = { S:0, C:0, E:0, Spiritual:0, L:0, M:0, D:0, Z:0 };
+            
+            quizArea.classList.remove('hidden');
+            resultArea.classList.add('hidden');
+            renderQuestion(0);
+        }
+
+        // 绑定事件
+        nextBtn.addEventListener('click', goToNext);
+        prevBtn.addEventListener('click', goToPrev);
+        restartBtn.addEventListener('click', restartTest);
+
+        // 初始化
+        renderQuestion(0);
+        
+        // 处理特殊情况：如果用户改变答案，next按钮状态跟着变
+        // 已在render时调用updateNavButtons
+    })();
+</script>
+</body>
+</html>
